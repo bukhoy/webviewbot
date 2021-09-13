@@ -1,8 +1,7 @@
-import CDP from 'chrome-remote-interface';
-
+import { getClient } from "../client.js";
 
 export default async function takeScreenshot(url) {
-    let client = await CDP();
+    let client = await getClient()
     const {Page} = client;
     try {
         await Page.enable();
