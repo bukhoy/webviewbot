@@ -1,6 +1,6 @@
 import { Composer } from 'telegraf';
-import printPageToPDF from '../webapi/cases/printPageToPDF.js';
-import takeScreenshot from '../webapi/cases/takeScreenshot.js';
+import { printPageToPDF } from '../webapi/cases/printPageToPDF.js';
+import { takeScreenshot } from '../webapi/cases/takeScreenshot.js';
 
 export const stepHandler = new Composer();
 stepHandler.action('pdf', async (ctx) => {

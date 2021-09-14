@@ -1,8 +1,7 @@
 import { getClient } from '../client.js';
 
 
-export default async function printPageToPDF(url) {
-    
+export async function printPageToPDF(url) {
     let client = await getClient()
     const {Page} = client;
     try {

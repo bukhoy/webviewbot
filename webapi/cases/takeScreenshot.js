@@ -1,6 +1,6 @@
 import { getClient } from "../client.js";
 
-export default async function takeScreenshot(url) {
+export async function takeScreenshot(url) {
     let client = await getClient()
     const {Page} = client;
     try {
