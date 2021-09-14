@@ -1,9 +1,9 @@
 import { getClient } from "../client.js";
 
 export async function takeScreenshot(url) {
-    let client = await getClient()
-    const {Page} = client;
     try {
+        let client = await getClient()
+        const {Page} = client;
         await Page.enable();
         await Page.navigate({url: url});
         await Page.loadEventFired();
@@ -12,7 +12,7 @@ export async function takeScreenshot(url) {
         });
         return Buffer.from(data, 'base64');
     } catch (err) {
-        throw new Error(err)
+        throw err
     } finally {
         await client.close();
     }

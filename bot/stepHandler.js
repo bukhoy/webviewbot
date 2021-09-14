@@ -13,8 +13,9 @@ stepHandler.action('pdf', async (ctx) => {
         });
     } catch (error) {
         ctx.replyWithMarkdown('Произошла ошибка: `' + error + '`');
+    } finally {
+        return ctx.scene.leave();
     }
-    return ctx.scene.leave();
 });
 stepHandler.action('png', async (ctx) => {
     try {
@@ -26,8 +27,9 @@ stepHandler.action('png', async (ctx) => {
         });
     } catch (error) {
         ctx.replyWithMarkdown('Произошла ошибка: `' + error + '`');
+    } finally {
+        return ctx.scene.leave();
     }
-    return ctx.scene.leave();
 });
 stepHandler.action('exit',  (ctx) => {
     ctx.deleteMessage()
@@ -35,4 +37,5 @@ stepHandler.action('exit',  (ctx) => {
 });
 stepHandler.use((ctx) => {
     ctx.reply('Необходимо выбрать тип экспорта')
+    ctx.scene.leave();
 });
