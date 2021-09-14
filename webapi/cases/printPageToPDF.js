@@ -18,7 +18,7 @@ export async function printPageToPDF(url) {
         });
         return Buffer.from(data, 'base64');
     } catch (err) {
-        throw new Error(err)
+        throw err
     } finally {
         await client.close();
     }

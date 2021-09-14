@@ -29,3 +29,10 @@ stepHandler.action('png', async (ctx) => {
     }
     return ctx.scene.leave();
 });
+stepHandler.action('exit',  (ctx) => {
+    ctx.deleteMessage()
+    ctx.scene.leave()
+});
+stepHandler.use((ctx) => {
+    ctx.reply('Необходимо выбрать тип экспорта')
+});

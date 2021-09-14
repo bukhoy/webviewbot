@@ -4,7 +4,7 @@ import { getVersionChrome } from '../webapi/cases/getVersionChrome.js';
 import { superWizard } from "./superWizard.js";
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
-const rateLimiter = new RateLimiter(2, 2000);
+const rateLimiter = new RateLimiter(1, 1000);
 const stage = new Scenes.Stage([superWizard])
 
 bot.use(session())
