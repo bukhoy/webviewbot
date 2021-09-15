@@ -37,5 +37,5 @@ stepHandler.action('exit',  (ctx) => {
 });
 stepHandler.use((ctx) => {
     ctx.reply('Необходимо выбрать тип экспорта')
-    ctx.scene.leave();
+    return ctx.scene.leave();
 });

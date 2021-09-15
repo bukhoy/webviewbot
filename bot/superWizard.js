@@ -1,4 +1,4 @@
-import { Markup, Scenes } from 'telegraf';
+import { Markup, Scenes, } from 'telegraf';
 import { stepHandler } from "./stepHandler.js";
 
 export const superWizard = new Scenes.WizardScene('super-wizard',

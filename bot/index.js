@@ -29,6 +29,7 @@ bot.on('message', Scenes.Stage.enter('super-wizard'))
 
 bot.catch((err, ctx) => {
     console.log(`Ooops, encountered an error for ${ctx.updateType}`, err)
+    ctx.scene.leave()
 })
 
 bot.launch().then(console.log(`Bot started`))

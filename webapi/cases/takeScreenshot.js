@@ -1,8 +1,8 @@
 import { getClient } from "../client.js";
 
 export async function takeScreenshot(url) {
+    let client = await getClient()
     try {
-        let client = await getClient()
         const {Page} = client;
         await Page.enable();
         await Page.navigate({url: url});
