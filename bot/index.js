@@ -25,6 +25,8 @@ bot.command('v', async (ctx) => {
     ctx.replyWithMarkdown(msg);
 })
 
+bot.start(ctx => ctx.replyWithSticker('CAACAgIAAxkBAAEC16ZhMLhsB34mPrzHDSgEefaSa-YdnAACyQMAAvBZdi2_x5nU7L3TuCAE'))
+
 bot.on('message', Scenes.Stage.enter('super-wizard'))
 
 bot.catch((err, ctx) => {
