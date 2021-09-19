@@ -1,12 +1,15 @@
-import { getClient } from '../client.js';
+import { doInNewContext } from '../client.js';
 
 
 export async function printPageToPDF(url) {
-    let client = await getClient()
+    return await doInNewContext(printPageToPDFInContext, url)
+}
+
+async function printPageToPDFInContext(client, url) {
     try {
         const {Page} = client;
         await Page.enable();
-        await Page.navigate({url: url});
+        await Page.navigate({url});
         await Page.loadEventFired();
         const {data} = await Page.printToPDF({
             landscape: true,
@@ -19,7 +22,5 @@ export async function printPageToPDF(url) {
         return Buffer.from(data, 'base64');
     } catch (err) {
         throw err
-    } finally {
-        await client.close();
     }
 }

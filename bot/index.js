@@ -25,7 +25,9 @@ bot.command('v', async (ctx) => {
     ctx.replyWithMarkdown(msg);
 })
 
-bot.start(ctx => ctx.replyWithSticker('CAACAgIAAxkBAAEC16ZhMLhsB34mPrzHDSgEefaSa-YdnAACyQMAAvBZdi2_x5nU7L3TuCAE'))
+bot.start(ctx => ctx.reply(
+    "Отправь мне ссылку и выбери формат экспорта."
+))
 
 bot.on('message', Scenes.Stage.enter('super-wizard'))
 
