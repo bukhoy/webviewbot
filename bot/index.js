@@ -17,14 +17,12 @@ bot.use(async (ctx, next) => {
 })
 
 bot.command('v', async (ctx) => {
-    let msg = '';
-    let result = await getVersionChrome()
-    Object.entries(result).forEach(([key, value]) => {
-        msg = msg + key + ': `' + value + '`\n'
-    })
-    ctx.replyWithMarkdown(msg);
+    let version = await getVersionChrome();
+    let {Browser, "Protocol-Version": Protocol, "V8-Version": v8} = version
+    ctx.replyWithMarkdown(
+        'Browser: `' + Browser + '`\nProtocol: `' + Protocol + '`\nV8-Version: `' + v8 + '`'
+    );
 })
-
 bot.start(ctx => ctx.reply(
     "Отправь мне ссылку и выбери формат экспорта."
 ))
