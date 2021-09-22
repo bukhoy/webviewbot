@@ -1,10 +1,9 @@
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
-
-dotenv.config()
+dotenv.config();
 if (process.env.BOT_TOKEN === undefined) {
-  сonsole.log('BOT_TOKEN must be provided!');
-  process.exit(0);
+    сonsole.log("BOT_TOKEN must be provided!");
+    process.exit(0);
 }
 
-import('./bot/index.js')
+import("./bot/index.js");
