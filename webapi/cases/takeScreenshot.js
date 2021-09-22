@@ -1,7 +1,7 @@
 import {doInNewContext } from "../client.js";
 
 export async function takeScreenshot(url) {
-    return await doInNewContext(takeScreenshotInContext, url) 
+    return await doInNewContext(takeScreenshotInContext, url)
 }
 
 async function takeScreenshotInContext(client, url) {
