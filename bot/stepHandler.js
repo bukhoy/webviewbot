@@ -1,4 +1,5 @@
 import { Composer } from "telegraf";
+import { Helpers } from "../helpers.js";
 import { printPageToPDF } from "../webapi/cases/printPageToPDF.js";
 import { takeScreenshot } from "../webapi/cases/takeScreenshot.js";
 
@@ -9,7 +10,7 @@ stepHandler.action("pdf", async (ctx) => {
         ctx.replyWithChatAction("upload_document");
         ctx.replyWithDocument({
             source: await printPageToPDF(ctx.wizard.state.url),
-            filename: `Page at ${new Date().toLocaleString()}.pdf`,
+            filename: `Page at ${new Helpers().formatDate()}.pdf`,
         });
     } catch (error) {
         ctx.replyWithMarkdown("Произошла ошибка: `" + error + "`");
@@ -23,7 +24,7 @@ stepHandler.action("png", async (ctx) => {
         ctx.replyWithChatAction("upload_document");
         ctx.replyWithDocument({
             source: await takeScreenshot(ctx.wizard.state.url),
-            filename: `Screenshot at ${new Date().toLocaleString()}.png`,
+            filename: `Screenshot at ${new Helpers().formatDate()}.png`,
         });
     } catch (error) {
         ctx.replyWithMarkdown("Произошла ошибка: `" + error + "`");

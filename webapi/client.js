@@ -1,8 +1,8 @@
 import CDP from "chrome-remote-interface";
 
 /**
- * Запуск action в отдельном потоке
- * @param {*} action
+ * Запуск action в отдельном контексте
+ * @param {Function} action - 
  * @param {*} params - Параметры action
  * @returns action result
  */

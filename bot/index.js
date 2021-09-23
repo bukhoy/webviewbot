@@ -31,7 +31,9 @@ bot.command("v", async (ctx) => {
     );
 });
 bot.start((ctx) => ctx.reply("Отправь мне ссылку и выбери формат экспорта."));
-
+bot.on("dice", (ctx) => {
+    ctx.reply(ctx.message.dice);
+});
 bot.on("message", Scenes.Stage.enter("super-wizard"));
 
 bot.catch((err, ctx) => {
