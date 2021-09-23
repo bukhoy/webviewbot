@@ -1,5 +1,11 @@
 # WebViewBot
 
+Simple Telegram bot for export content pages from url. Available Options: pdf and png
+
+Telegram bot для эскпорта содержимого страниц по url. Доступные варианты: pdf и png
+
+[Link](https://t.me/web_view_bot)
+
 ### Запуск
 
 1. Запустить Chrome в headless режиме
