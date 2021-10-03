@@ -10,8 +10,10 @@ async function takeScreenshotInContext(client, url) {
         await Page.enable();
         await Page.navigate({ url });
         await Page.loadEventFired();
+        let { contentSize } = await Page.getLayoutMetrics();
         const { data } = await Page.captureScreenshot({
             captureBeyondViewport: true,
+            clip: { scale: 1, ...contentSize },
         });
         return Buffer.from(data, "base64");
     } catch (err) {
