@@ -1,10 +1,8 @@
 import { Composer } from "telegraf";
 import { Helpers } from "../helpers.js";
 import { printPageToPDF } from "../webapi/cases/printPageToPDF.js";
-import {
-    takeScreenshot,
-    takeFullScreenshot,
-} from "../webapi/cases/takeScreenshot.js";
+import { takeScreenshot } from "../webapi/cases/takeScreenshot.js";
+import { takeFullScreenshot } from "../webapi/cases/takeScreenshot.js";
 
 export const stepHandler = new Composer();
 stepHandler.action("pdf", async (ctx) => {
@@ -21,15 +19,11 @@ stepHandler.action("pdf", async (ctx) => {
         return ctx.scene.leave();
     }
 });
-stepHandler.action("png", async (ctx) => {
-    await ctx.deleteMessage();
-    return ctx.wizard.next();
-});
 stepHandler.action("exit", async (ctx) => {
     await ctx.deleteMessage();
     return ctx.scene.leave();
 });
-stepHandler.action("png_default", async (ctx) => {
+stepHandler.action("png", async (ctx) => {
     try {
         await ctx.deleteMessage();
         await ctx.replyWithChatAction("upload_document");
@@ -43,7 +37,7 @@ stepHandler.action("png_default", async (ctx) => {
         return ctx.scene.leave();
     }
 });
-stepHandler.action("png_full", async (ctx) => {
+stepHandler.action("pngFullPage", async (ctx) => {
     try {
         await ctx.deleteMessage();
         await ctx.replyWithChatAction("upload_document");

@@ -12,22 +12,18 @@ export const superWizard = new Scenes.WizardScene(
         ctx.wizard.state.url = ctx.message.text;
         ctx.reply(
             "Экспортировать в ...",
-            Markup.inlineKeyboard([
-                Markup.button.callback("PDF файл", "pdf"),
-                Markup.button.callback("Скриншот", "png"),
-                Markup.button.callback("Закрыть", "exit"),
-            ]),
-        );
-        return ctx.wizard.next();
-    },
-    async (ctx) => {
-        ctx.deleteMessage();
-        ctx.reply(
-            "Экспортировать...",
-            Markup.inlineKeyboard([
-                Markup.button.callback("Стандартный", "png_default"),
-                Markup.button.callback("Всего документа", "png_full"),
-            ]),
+            Markup.inlineKeyboard(
+                [
+                    Markup.button.callback("PDF файл", "pdf"),
+                    Markup.button.callback("Скриншот", "png"),
+                    Markup.button.callback(
+                        "Скриншот всего документа",
+                        "pngFullPage",
+                    ),
+                    Markup.button.callback("Закрыть", "exit"),
+                ],
+                { columns: 2 },
+            ),
         );
         return ctx.wizard.next();
     },
