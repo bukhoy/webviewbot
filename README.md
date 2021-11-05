@@ -1,20 +1,24 @@
-# WebViewBot
+## WebViewBot 
 
-Simple Telegram bot for export content pages from url. Available Options: pdf and png
+[Бот](https://web_view_bot) для экспорта веб-страниц в формат png и pdf.
 
-Telegram bot для эскпорта содержимого страниц по url. Доступные варианты: pdf и png
+#### Варианты экспорта
 
-[Link](https://t.me/web_view_bot)
+    - Экспорт в формате pdf
+    - Экспорт в формате png
+    - Экспорт всей страницы в формате png
 
-### Запуск
 
-1. Запустить Chrome в headless режиме
+
+## Локальная установка и запуск
+1. Склонировать репозиторий
+2. Запустить Chrome в headless режиме
 
 ```
 google-chrome --headless --remote-debugging-port=9222 --start-maximized --hide-scrollbars --window-size=1920,1080
 ```
 
-2. Настроить файл .env
+3. Настроить файл .env
 
 ```
 BOT_TOKEN="Токен бота"

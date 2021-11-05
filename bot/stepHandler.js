@@ -19,24 +19,32 @@ stepHandler.action("pdf", async (ctx) => {
         return ctx.scene.leave();
     }
 });
+
 stepHandler.action("exit", async (ctx) => {
     await ctx.deleteMessage();
     return ctx.scene.leave();
 });
+
 stepHandler.action("png", async (ctx) => {
     try {
         await ctx.deleteMessage();
         await ctx.replyWithChatAction("upload_document");
-        await ctx.replyWithDocument({
-            source: await takeScreenshot(ctx.wizard.state.url),
-            filename: `Screenshot at ${new Helpers().formatDate()}.png`,
-        });
+        await ctx.replyWithDocument(
+            {
+                source: await takeScreenshot(ctx.wizard.state.url),
+                filename: `Screenshot at ${new Helpers().formatDate()}.png`,
+            },
+            {
+                caption: `datetime: ${new Date().toJSON()}`,
+            },
+        );
     } catch (error) {
         ctx.replyWithMarkdown("Произошла ошибка: `" + error + "`");
     } finally {
         return ctx.scene.leave();
     }
 });
+
 stepHandler.action("pngFullPage", async (ctx) => {
     try {
         await ctx.deleteMessage();
@@ -46,7 +54,7 @@ stepHandler.action("pngFullPage", async (ctx) => {
                 source: await takeFullScreenshot(ctx.wizard.state.url),
                 filename: `Screenshot page at ${new Helpers().formatDate()}.png`,
             },
-            { caption: "Скриншот всей страницы" },
+            { caption: `datetime: ${new Date().toJSON()}` },
         );
     } catch (error) {
         ctx.replyWithMarkdown("Произошла ошибка: `" + error + "`");
@@ -54,6 +62,7 @@ stepHandler.action("pngFullPage", async (ctx) => {
         return ctx.scene.leave();
     }
 });
+
 stepHandler.use(async (ctx) => {
     await ctx.reply("Необходимо выбрать тип экспорта");
     return ctx.scene.leave();

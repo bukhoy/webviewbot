@@ -1,11 +1,6 @@
 import CDP from "chrome-remote-interface";
 
-/**
- * Запуск action в отдельном контексте
- * @param {Function} action - 
- * @param {*} params - Параметры action
- * @returns action result
- */
+
 export async function doInNewContext(action, params) {
     const { webSocketDebuggerUrl } = await CDP.Version();
     // connect to the DevTools special target
