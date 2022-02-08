@@ -1,1 +1,1 @@
-worker: google-chrome --headless --remote-debugging-port=9222 --start-maximized --hide-scrollbars --window-size=1920,1080 & node index.js
+worker: google-chrome --headless --remote-debugging-port=9222 --start-maximized --hide-scrollbars --window-size=1920,1080 --disable-popup-blocking --disable-web-security & node index.js

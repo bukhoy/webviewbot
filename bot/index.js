@@ -3,7 +3,7 @@ import { Scenes, session, Telegraf } from "telegraf";
 import { getVersionChrome } from "../webapi/cases/getVersionChrome.js";
 import { superWizard } from "./superWizard.js";
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf(process.env.BOT_TOKEN, { handlerTimeout: 10e3 });
 const rateLimiter = new RateLimiter(1, 1000);
 const stage = new Scenes.Stage([superWizard]);
 
