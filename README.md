@@ -1,6 +1,6 @@
 ## WebViewBot 
 
-[Бот](https://web_view_bot) для экспорта веб-страниц в формат png и pdf.
+[Бот](https://t.me/web_view_bot) для экспорта веб-страниц в формат png и pdf.
 
 #### Варианты экспорта
 
